@@ -1,4 +1,5 @@
 import pygame as pg
+from player import *
 from settings import *
 
 
@@ -9,8 +10,10 @@ class Game:
         pg.display.set_caption("Platformer Game")
         self.clock = pg.time.Clock()
         self.running = True
-    def new(self):#Создания уровня
+    def new(self):   #Создания уровня
         self.all_sprites = pg.sprite.Group()
+        self.player = Player(WINDOW_WIDTH/2, WINDOW_HEIGHT/2)
+        self.all_sprites.add(self.player)
         self.run()
     def events(self):
         for event in pg.event.get():
